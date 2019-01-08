@@ -5,10 +5,22 @@
 
 <!-- 게시판 처리 SQL -->
 <mapper namespace="com.scit.oracleTest.DAO.userMapper">
+	<!-- 회원가입 -->
 	<insert id="insertUser" parameterType="User">
 		insert into Memberinfo
-		(id, pw)
+		(id, pw, name, phone, email, birthdate)
 		values
-		(#{id},#{pw})
+		(#{id},#{pw}, #{name}, #{phone}, #{email},#{birthdate})
 	</insert>
+
+	<!-- 로그인 -->
+	<select id ="login" parameterType="User" resultType="User">
+		select
+			id, pw, name, phone, email, birthdate
+		from
+			memberinfo
+		where
+			id=#{id}
+			and pw=#{pw}
+	</select>
 </mapper>

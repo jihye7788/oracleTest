@@ -24,4 +24,17 @@ public class userDAO {
 		}
 		return result;
 	}
+	
+	public User login(User user) {
+		User result =null;
+		userMapper mapper = sqlSession.getMapper(userMapper.class);
+		try {
+			result = mapper.login(user);
+		} catch (Exception e) {
+			// TODO: handle exception
+			result = null;
+		}
+		return result;
+	}
+	
 }

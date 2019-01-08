@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="goLogin" method="post">
+	<form action="login" method="post">
+		ID : <input type="text" name="id"><font color="red">${warning}</font><br>
+		PW : <input type="text" name="pw"><br>
 		<button>login</button>
 	</form>
-	<form action="goJoin" method="post">
-		<button>Join</button>
+	<form action="goHome" method="post">
+		<button>Home</button>
 	</form>
-	
 </body>
 </html>
