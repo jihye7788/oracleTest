@@ -25,11 +25,11 @@ public class userDAO {
 		return result;
 	}
 	
-	public User login(User user) {
+	public User loginUser(User user) {
 		User result =null;
 		userMapper mapper = sqlSession.getMapper(userMapper.class);
 		try {
-			result = mapper.login(user);
+			result = mapper.loginUser(user);
 		} catch (Exception e) {
 			// TODO: handle exception
 			result = null;

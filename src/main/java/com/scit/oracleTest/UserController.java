@@ -1,5 +1,7 @@
 package com.scit.oracleTest;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,13 +41,21 @@ public class UserController {
 		return "home";
 	}
 
-	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public String login(User user, Model model) {
-		User result = dao.login(user);
+	@RequestMapping(value="/loginUser",method=RequestMethod.POST)
+	public String login(User user, HttpSession session, Model model) {
+		User result = dao.loginUser(user);
 		if (result==null) {
 			model.addAttribute("warning", "ID, PW를 다시한번 체크해주세요");
+			model.addAttribute("User", user);
 			return "login"; 
 		}
+		session.setAttribute("loginId", result.getId());
+		return "home";
+	}
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(HttpSession session){
+		session.invalidate();//새로 session을 만든다. 
+		//session.setAttribute("loginId", null);이것도 가능
 		return "home";
 	}
 }
