@@ -25,9 +25,12 @@
 		<button>Board</button>
 	</form>
 	
+	<!-- 회원가입 -->
 	<form action="goJoin" method="post">
 		<button>Join</button>
 	</form>
+
+	
 	
 </body>
 </html>

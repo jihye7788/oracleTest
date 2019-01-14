@@ -47,9 +47,10 @@ public class UserController {
 		if (result==null) {
 			model.addAttribute("warning", "ID, PW를 다시한번 체크해주세요");
 			model.addAttribute("User", user);
+		
 			return "login"; 
 		}
-		session.setAttribute("loginId", result.getId());
+		session.setAttribute("logiId", result.getId());
 		return "home";
 	}
 	@RequestMapping(value="/logout", method=RequestMethod.GET)

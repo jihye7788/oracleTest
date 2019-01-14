@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 게시판 처리 SQL -->
+<mapper namespace="com.scit.oracleTest.DAO.commentMapper">
+	<insert id="insertComment" parameterType="Comment">
+		insert into comments(
+			commentseq,
+			boardseq,
+			id,
+			comments,
+			indate
+			)
+		values(
+			commentseq.nextVal,
+			#{boardseq},
+			#{id},
+			#{comments},
+			sysdate
+			)
+	</insert>
+	
+	<select id="selectCommentList" parameterType="String" resultType="Comment">
+		select
+			commentseq,
+			boardseq,
+			id,
+			comments,
+			indate,
+			parentseq
+		from 
+			comments
+		where
+			boardseq=#{boardseq}
+		order by indate
+			desc
+	</select>
+</mapper>
