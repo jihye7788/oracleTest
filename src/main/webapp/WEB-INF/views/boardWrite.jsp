@@ -17,9 +17,9 @@
 		<input type="hidden" value="${board.boardseq}" name="seq">
 	</c:if>
 	
-	<h3>[ BoardTitle ] <input type="text" name="boardtitle" value="${board.boardtitle }"></h3>
+	<h3>[ BoardTitle ] <input type="text" name="boardtitle" value="${board.boardtitle}"></h3>
 	  [ BoardContent ]<br><br>
-	  <textarea name ="BoardContent" rows="30" cols="50"></textarea><br>
+	  <textarea name ="boardcontent" rows="30" cols="50"></textarea><br>
 	  <button>Write</button>	
 	</form>
 </body>

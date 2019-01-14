@@ -27,10 +27,10 @@ public class commentController {
 	
 	@RequestMapping(value="/insertComment" ,method=RequestMethod.POST)
 	public String insertComment(Comment comment, HttpSession session, Model model, User user) {
-		if(session.getAttribute("logiId")==null) {
+		if(session.getAttribute("loginId")==null) {
 			return "login";
 		}
-		String loginId=(String)session.getAttribute("logiId");
+		String loginId=(String)session.getAttribute("loginId");
 		comment.setId(loginId);
 		int result=dao.insertComment(comment);
 		System.out.println();

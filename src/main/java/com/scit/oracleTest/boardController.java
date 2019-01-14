@@ -36,7 +36,7 @@ public class boardController {
 	
 	@RequestMapping(value="/insertBoard",method=RequestMethod.POST)
 	public String insertBoard(Board board, Model model, HttpSession session) {
-		String id = (String) session.getAttribute("logiId");//String 들어가는건 ""를 적어준다.
+		String id = (String) session.getAttribute("loginId");//String 들어가는건 ""를 적어준다.
 		board.setId(id);//board에 id가 들어있지 않기때문에 set을 써서 담아 넣어준다. 
 		int result = dao.inseretBoard(board);
 		if (result==1) {
@@ -46,6 +46,7 @@ public class boardController {
 			model.addAttribute("Message", "게시물 등록에 실패하였습니다.");
 			return "redirect:/selectBoardList";
 	}
+	
 	@RequestMapping(value="/selectBoardList",method=RequestMethod.GET)
 	public String selectBoardList(Model model) {
 		ArrayList<Board> bList = dao.selectBoardList();

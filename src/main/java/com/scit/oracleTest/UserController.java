@@ -50,7 +50,7 @@ public class UserController {
 		
 			return "login"; 
 		}
-		session.setAttribute("logiId", result.getId());
+		session.setAttribute("loginId", result.getId());
 		return "home";
 	}
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
